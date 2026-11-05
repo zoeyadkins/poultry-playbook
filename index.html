@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="A beginner's poultry trading guide: the bird, the parts, the market, and how to trade it. With a chicken-cuts diagram and a quiz.">
+<meta name="theme-color" content="#1B232C">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Poultry Playbook">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Poultry Playbook">
+<meta property="og:description" content="The bird, the parts, the market, and how to trade it. A beginner's guide with a chicken-cuts diagram and a quiz.">
+<meta property="og:image" content="https://zoeyadkins.github.io/poultry-playbook/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Poultry Playbook</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one 760px column under a dark packing-house masthead; a sticky stencil tab bar switches
+   between the guide, the labeled bird, the quiz, the lingo table and the how-to-excel plan. */
+:root{
+  --bg:#EEF1F4; --panel:#FFFFFF; --panel-2:#E2E7EC; --fg:#1B232C; --muted:#5B6873;
+  --line:#CBD3DA; --line-strong:#8A96A1;
+  --mast-bg:#1B232C; --mast-fg:#F3F5F7; --mast-muted:#A9B4BE;
+  --accent:#B2321E; --accent-ink:#FFFFFF;
+  --ok:#2F7A4C; --ok-bg:#DDEFE3; --bad:#B2321E; --bad-bg:#F6DEDA; --warn:#B7791F;
+  --c-neck:#B9A6C9; --c-back:#93A7B9; --c-breast:#F2BBAB; --c-tender:#D9705A;
+  --c-drumette:#F4C86E; --c-flat:#E8A84A; --c-tip:#C98A2E; --c-thigh:#C99A6E; --c-drum:#A8633F; --c-paw:#A9B27C;
+  --font-display:"Bebas Neue","Oswald","Arial Narrow",Impact,sans-serif;
+  --font-body:"IBM Plex Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141A20; --panel:#1C242C; --panel-2:#26303A; --fg:#E7ECF0; --muted:#9DA9B4;
+    --line:#33404B; --line-strong:#60707D;
+    --mast-bg:#0E1318; --mast-fg:#F3F5F7; --mast-muted:#8E9AA5;
+    --accent:#E25A42; --accent-ink:#FFFFFF;
+    --ok:#5FB07C; --ok-bg:#1F3A2B; --bad:#E25A42; --bad-bg:#43241F; --warn:#D9A441;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141A20; --panel:#1C242C; --panel-2:#26303A; --fg:#E7ECF0; --muted:#9DA9B4;
+  --line:#33404B; --line-strong:#60707D;
+  --mast-bg:#0E1318; --mast-fg:#F3F5F7; --mast-muted:#8E9AA5;
+  --accent:#E25A42; --accent-ink:#FFFFFF;
+  --ok:#5FB07C; --ok-bg:#1F3A2B; --bad:#E25A42; --bad-bg:#43241F; --warn:#D9A441;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.55;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--mast-bg)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--accent)}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.2em}
+li+li{margin-top:6px}
+strong{font-weight:600}
+.mono{font-family:var(--font-mono)}
+.muted{color:var(--muted)}
+
+/* masthead */
+.masthead{background:var(--mast-bg);color:var(--mast-fg)}
+.masthead-in{max-width:760px;margin:0 auto;padding-block:26px 22px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;gap:18px;align-items:center;justify-content:space-between}
+.eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mast-muted)}
+.masthead h1{font-family:var(--font-display);font-size:clamp(40px,9vw,64px);line-height:.95;letter-spacing:.02em;margin-top:6px}
+.masthead .tag{margin-top:8px;color:var(--mast-muted);max-width:34ch}
+.stamp{flex:0 0 auto;width:92px;height:92px}
+@media (max-width:460px){.stamp{width:72px;height:72px}}
+
+/* tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.tabs-in{max-width:760px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.tabs-in::-webkit-scrollbar{display:none}
+.tab{font-family:var(--font-display);font-size:19px;letter-spacing:.07em;text-transform:uppercase;background:none;border:0;
+  border-bottom:3px solid transparent;padding:12px 10px 9px;color:var(--muted);white-space:nowrap;flex:1 0 auto;text-align:center}
+.tab[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent)}
+
+/* page */
+.wrap{max-width:760px;margin:0 auto;padding-block:22px 56px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.view{display:flex;flex-direction:column;gap:34px}
+.sec{display:flex;flex-direction:column;gap:14px;min-width:0}
+.sec h2{font-family:var(--font-display);font-size:32px;line-height:1;letter-spacing:.02em}
+.sec h3{font-family:var(--font-display);font-size:22px;line-height:1;letter-spacing:.03em;margin-top:6px}
+.sec .lead{font-size:17px;max-width:62ch}
+.sec p,.sec li{max-width:68ch}
+.rule{height:1px;background:var(--line)}
+.thesis{border-left:4px solid var(--accent);padding:4px 0 4px 16px;font-size:17px;max-width:60ch}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 16px;min-width:0}
+.grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.grid .card h3{margin-top:0}
+.chip{display:inline-block;font-family:var(--font-mono);font-size:12px;padding:2px 7px;border:1px solid var(--line-strong);border-radius:3px;margin:2px 4px 2px 0;white-space:nowrap}
+.kv{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin:0}
+.kv div{display:grid;grid-template-columns:118px minmax(0,1fr);gap:10px;align-items:baseline}
+.kv dt{font-family:var(--font-mono);font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.kv dd{margin:0}
+@media (max-width:400px){.kv div{grid-template-columns:96px minmax(0,1fr)}}
+
+/* size ladder */
+.ladder{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.ladder .card{display:flex;flex-direction:column;gap:6px}
+.ladder .lb{font-family:var(--font-display);font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
+.ladder .ico{height:46px;display:flex;align-items:flex-end}
+.ladder svg{height:100%;width:auto}
+
+/* flow */
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch}
+.flow .step{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:8px 10px;flex:1 1 120px;min-width:0}
+.flow .step b{display:block;font-family:var(--font-display);font-size:18px;letter-spacing:.04em;line-height:1.1}
+.flow .step span{font-size:13px;color:var(--muted)}
+
+/* balance bar */
+.balance{display:flex;height:38px;border-radius:4px;overflow:hidden;border:1px solid var(--line-strong)}
+.balance div{display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:17px;letter-spacing:.04em;color:#1B232C;min-width:0;overflow:hidden;white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:6px}
+.lg{display:inline-flex;align-items:center;gap:7px;padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:var(--panel);font-size:13px;color:var(--fg)}
+.lg i{width:12px;height:12px;border-radius:2px;display:inline-block;flex:0 0 auto}
+.lg[aria-pressed="true"]{border-color:var(--fg);box-shadow:inset 0 0 0 1px var(--fg)}
+
+/* months */
+.months{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
+@media (min-width:600px){.months{grid-template-columns:repeat(12,minmax(0,1fr))}}
+.months div{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:6px 4px;text-align:center;min-width:0}
+.months b{display:block;font-family:var(--font-display);font-size:16px;letter-spacing:.06em}
+.months span{display:block;font-size:11px;line-height:1.25;color:var(--muted);margin-top:2px}
+.months .hot{border-color:var(--accent)}
+
+/* spec */
+.spec{font-family:var(--font-mono);font-size:14px;background:var(--panel-2);border-radius:4px;padding:10px 12px;overflow-x:auto;white-space:nowrap}
+
+/* bird */
+.bird-wrap{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:6px 4px;position:relative}
+.bird{display:block;width:100%;max-width:560px;height:auto;margin:0 auto}
+.bird .base{fill:var(--panel-2);stroke:var(--fg);stroke-width:2;stroke-linejoin:round}
+.bird .region{stroke:var(--fg);stroke-width:1.5;stroke-linejoin:round;transition:fill .15s,opacity .15s,stroke-width .15s}
+.bird:not(.locked) .region,.bird:not(.locked) .paw{cursor:pointer}
+.bird.locked [data-part]{cursor:default}
+.bird .region[data-part="neck"]{fill:var(--c-neck)}
+.bird .region[data-part="back"]{fill:var(--c-back)}
+.bird .region[data-part="breast"]{fill:var(--c-breast)}
+.bird .region[data-part="tender"]{fill:var(--c-tender);stroke-dasharray:4 3}
+.bird .region[data-part="drumette"]{fill:var(--c-drumette)}
+.bird .region[data-part="flat"]{fill:var(--c-flat)}
+.bird .region[data-part="tip"]{fill:var(--c-tip)}
+.bird .region[data-part="thigh"]{fill:var(--c-thigh)}
+.bird .region[data-part="drumstick"]{fill:var(--c-drum)}
+.bird .paw path{stroke:var(--c-paw);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;fill:none;transition:stroke .15s,stroke-width .15s}
+.bird .paw rect{fill:transparent;pointer-events:all}
+.bird .shank{stroke:var(--fg);stroke-width:7;stroke-linecap:round;fill:none}
+.bird .leg-back path{stroke:var(--line-strong);stroke-width:6;stroke-linecap:round;fill:none}
+.bird .skull{fill:var(--panel-2);stroke:var(--fg);stroke-width:2}
+.bird .comb,.bird .wattle{fill:var(--accent);stroke:var(--fg);stroke-width:1.5;stroke-linejoin:round}
+.bird .beak{fill:var(--c-flat);stroke:var(--fg);stroke-width:1.5;stroke-linejoin:round}
+.bird .eye{fill:var(--fg)}
+.bird .lbl line{stroke:var(--fg);stroke-width:1}
+.bird .lbl circle{fill:var(--fg)}
+.bird .lbl text{font-family:var(--font-display);font-size:13.5px;letter-spacing:.06em;fill:var(--fg)}
+.bird .hide{display:none}
+/* Bird tab: selected part pops, the rest step back */
+.bird.sel .region:not(.on),.bird.sel .paw:not(.on){opacity:.45}
+.bird.sel .region.on{stroke-width:3}
+.bird.sel .paw.on path{stroke-width:9}
+/* Quiz: grey bird, one part marked */
+.bird.neutral .region{fill:var(--panel-2);stroke:var(--line-strong)}
+.bird.neutral .paw path{stroke:var(--line-strong)}
+.bird.neutral .comb,.bird.neutral .wattle,.bird.neutral .beak{fill:var(--line-strong)}
+.bird.neutral:not(.locked) .region:hover{fill:var(--line)}
+.bird.neutral .region.on{fill:var(--accent);stroke:var(--fg);stroke-width:2.5;stroke-dasharray:none}
+.bird.neutral .paw.on path{stroke:var(--accent)}
+.bird.neutral .region.good{fill:var(--ok);stroke:var(--fg);stroke-width:2.5;stroke-dasharray:none}
+.bird.neutral .paw.good path{stroke:var(--ok)}
+.bird.neutral .region.badpick{fill:var(--bad);stroke:var(--fg);stroke-width:2.5;stroke-dasharray:none}
+.bird.neutral .paw.badpick path{stroke:var(--bad)}
+.bird .pin circle{fill:var(--panel);stroke:var(--fg);stroke-width:2}
+.bird .pin text{font-family:var(--font-display);font-size:18px;fill:var(--fg)}
+.bird .ring{fill:none;stroke:var(--accent);stroke-width:3;transform-box:fill-box;transform-origin:center;animation:ring 1.6s ease-out infinite}
+@keyframes ring{0%{transform:scale(.5);opacity:.95}100%{transform:scale(2.4);opacity:0}}
+.bird .tag rect{rx:4;stroke:var(--panel);stroke-width:1.5}
+.bird .tag.good rect{fill:var(--ok)}
+.bird .tag.bad rect{fill:var(--bad)}
+.bird .tag text{font-family:var(--font-display);font-size:14px;letter-spacing:.06em;fill:#FFFFFF}
+.bird .tag line{stroke:var(--fg);stroke-width:1.2}
+.tapnote{position:absolute;top:10px;left:10px;font-family:var(--font-display);font-size:14px;letter-spacing:.1em;background:var(--fg);color:var(--bg);padding:4px 9px 3px;border-radius:3px;pointer-events:none}
+
+.part-panel{display:flex;flex-direction:column;gap:10px}
+.part-panel .name{font-family:var(--font-display);font-size:30px;line-height:1;letter-spacing:.03em;display:flex;align-items:center;gap:10px}
+.part-panel .name i{width:16px;height:16px;border-radius:3px;display:inline-block}
+
+/* quiz */
+.modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.mode{display:flex;flex-direction:column;gap:2px;align-items:flex-start;text-align:left;padding:10px 12px;border:1px solid var(--line-strong);border-radius:6px;background:var(--panel);font-size:14px;min-height:60px}
+.mode b{font-family:var(--font-display);font-size:19px;letter-spacing:.05em;line-height:1}
+.mode span{font-size:12.5px;color:var(--muted)}
+.mode[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.mode[aria-pressed="true"] span{color:var(--bg);opacity:.8}
+.btn{font-family:var(--font-display);font-size:19px;letter-spacing:.07em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);border:0;border-radius:4px;padding:10px 18px;min-height:46px}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line-strong)}
+.btn.wide{width:100%}
+.btn.small{font-size:15px;min-height:34px;padding:6px 12px}
+.btn[disabled]{opacity:.5;cursor:default}
+.btn:focus-visible{outline-color:var(--fg)}
+.qtop{display:flex;flex-direction:column;gap:8px}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.qhead .qmode{font-family:var(--font-display);font-size:21px;letter-spacing:.05em;line-height:1;flex:1 1 auto;min-width:0}
+.qhead .qnums{font-family:var(--font-mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.qhead .qnums b{color:var(--fg);font-weight:500}
+.qbar{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px}
+.qbar i{display:block;height:7px;border-radius:4px;background:var(--line)}
+.qbar i.cur{background:var(--fg)}
+.qbar i.ok{background:var(--ok)}
+.qbar i.no{background:var(--bad)}
+.qcard{display:flex;flex-direction:column;gap:14px}
+.qkind{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.qprompt{font-size:19px;font-weight:500;line-height:1.35;max-width:56ch}
+.qprompt em{font-style:normal;background:var(--panel-2);padding:0 6px;border-radius:3px}
+.opts{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.opts.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.opt{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:11px 14px;border:1.5px solid var(--line-strong);border-radius:6px;background:var(--panel);color:var(--fg);font-size:15px;min-height:50px;line-height:1.35}
+.opt .k{flex:0 0 auto;font-family:var(--font-display);font-size:17px;letter-spacing:0;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--line-strong);display:inline-flex;align-items:center;justify-content:center;color:var(--muted)}
+.opt>span:last-child{min-width:0}
+.opt:not([disabled]):hover{border-color:var(--fg)}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}
+.opt.right .k{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .k{background:var(--bad);border-color:var(--bad);color:#fff}
+.opt[disabled]{cursor:default}
+.feedback{border-radius:6px;padding:12px 14px;display:grid;grid-template-columns:30px minmax(0,1fr);gap:4px 10px;align-items:start}
+.feedback.good{background:var(--ok-bg);border:1px solid var(--ok)}
+.feedback.bad{background:var(--bad-bg);border:1px solid var(--bad)}
+.feedback .mark{grid-row:1/3;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;font-weight:600}
+.feedback.good .mark{background:var(--ok)}
+.feedback.bad .mark{background:var(--bad)}
+.feedback b{font-family:var(--font-display);font-size:21px;letter-spacing:.05em;line-height:1.1}
+.feedback p{font-size:14.5px}
+.qfoot{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.score-big{font-family:var(--font-display);font-size:84px;line-height:1;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.score-big small{font-size:.4em;color:var(--muted)}
+.bests{display:flex;flex-wrap:wrap;gap:6px}
+.hint{font-size:13px;color:var(--muted)}
+.endbar{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px}
+.endbar i{display:block;height:14px;border-radius:3px;background:var(--line)}
+.endbar i.ok{background:var(--ok)}
+.endbar i.no{background:var(--bad)}
+
+/* lingo table */
+.ltable{width:100%;border-collapse:collapse}
+.ltable th{text-align:left;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:6px 8px 6px 0;border-bottom:1px solid var(--line-strong)}
+.ltable td{padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.ltable td:first-child{font-family:var(--font-mono);font-size:13.5px;white-space:nowrap;width:1%;padding-right:14px}
+.ltable tr:last-child td{border-bottom:0}
+
+/* excel */
+.plan{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.plan .card b{font-family:var(--font-display);font-size:20px;letter-spacing:.04em;display:block;margin-bottom:4px}
+.check{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
+.check li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:10px;align-items:start}
+.check li::before{content:"";width:14px;height:14px;border:1.5px solid var(--line-strong);border-radius:3px;margin-top:4px}
+.res a{display:block}
+
+footer{max-width:760px;margin:0 auto;padding-block:0 28px;color:var(--muted);font-size:12.5px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-in">
+    <div>
+      <div class="eyebrow">Adkins &amp; Associates · Trader training</div>
+      <h1>Poultry Playbook</h1>
+      <p class="tag">The bird, the parts, the market, and how to trade it. Built for a first year on the desk.</p>
+    </div>
+    <svg class="stamp" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path id="arcTop" d="M18 50 A32 32 0 0 1 82 50" fill="none"/>
+      <path id="arcBot" d="M82 54 A32 32 0 0 1 18 54" fill="none"/>
+      <text font-family="Bebas Neue,Impact,sans-serif" font-size="11.5" letter-spacing="1.5" fill="currentColor"><textPath href="#arcTop" startOffset="50%" text-anchor="middle">POULTRY TRADER</textPath></text>
+      <text font-family="Bebas Neue,Impact,sans-serif" font-size="11.5" letter-spacing="1.5" fill="currentColor"><textPath href="#arcBot" startOffset="50%" text-anchor="middle">A &amp; A · ARKANSAS</textPath></text>
+      <text x="50" y="58" text-anchor="middle" font-family="Bebas Neue,Impact,sans-serif" font-size="26" letter-spacing="1" fill="currentColor">WOG</text>
+    </svg>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <div class="tabs-in" role="tablist" id="tabs">
+    <button class="tab" role="tab" data-view="guide" aria-selected="true">Guide</button>
+    <button class="tab" role="tab" data-view="bird" aria-selected="false">The Bird</button>
+    <button class="tab" role="tab" data-view="quiz" aria-selected="false">Quiz</button>
+    <button class="tab" role="tab" data-view="lingo" aria-selected="false">Lingo</button>
+    <button class="tab" role="tab" data-view="excel" aria-selected="false">Excel</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ===================== GUIDE ===================== -->
+<section id="view-guide" class="view">
+
+  <div class="sec">
+    <div class="eyebrow">Start here</div>
+    <p class="thesis">You are selling pieces of a bird that has to balance. Every chicken comes with two breasts, two wings, two legs and a back. A plant cannot make more breast without making more legs and wings, so when one part is hot, another part is cheap. Most of this business is knowing which is which, this week.</p>
+    <p class="lead">Read this tab once, then live in the other four. The Bird tab is the map, the Quiz drills it, Lingo is the dictionary, and Excel is the plan.</p>
+  </div>
+
+  <div class="sec">
+    <h2>The bird</h2>
+    <p>Almost everything traded in the US is a <strong>broiler</strong> (also called a broiler/fryer): a young meat chicken, about 6 to 8 weeks old at processing. Plants are built around a target live weight, and that weight decides what the plant makes and who buys it.</p>
+    <div class="ladder">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 60 40" aria-hidden="true"><ellipse cx="34" cy="26" rx="20" ry="12" fill="var(--c-breast)" stroke="var(--line-strong)"/><circle cx="12" cy="14" r="6" fill="var(--panel-2)" stroke="var(--line-strong)"/><path d="M8 13 L2 15 L8 17Z" fill="var(--c-flat)"/></svg></div>
+        <div class="lb">&lt; 4.25 lb</div>
+        <div class="eyebrow">Small bird</div>
+        <p>Sold bone-in as 8-piece or 9-piece cut-up. Buyer: fast food (QSR) fried-chicken chains and some foodservice. Small birds make small wings.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 60 40" aria-hidden="true"><ellipse cx="34" cy="24" rx="24" ry="14" fill="var(--c-breast)" stroke="var(--line-strong)"/><circle cx="9" cy="11" r="6.5" fill="var(--panel-2)" stroke="var(--line-strong)"/><path d="M4 10 L-2 12 L4 14Z" fill="var(--c-flat)"/></svg></div>
+        <div class="lb">4.25 – 6.25 lb</div>
+        <div class="eyebrow">Medium / tray pack</div>
+        <p>Cut into parts and tray-packed for the grocery meat case, or sold whole for rotisserie. Buyer: retail.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 60 40" aria-hidden="true"><ellipse cx="33" cy="22" rx="27" ry="17" fill="var(--c-breast)" stroke="var(--line-strong)"/><circle cx="7" cy="8" r="7" fill="var(--panel-2)" stroke="var(--line-strong)"/><path d="M1 7 L-5 9 L1 11Z" fill="var(--c-flat)"/></svg></div>
+        <div class="lb">6.25 lb +</div>
+        <div class="eyebrow">Big bird / deboning</div>
+        <p>Many plants run 8 to 9 lb birds. Deboned into B/S breast, tenders and B/S thigh meat; the wings are jumbo wings. Buyer: further processors, foodservice, retail boneless. This is where the industry is growing.</p>
+      </div>
+    </div>
+    <p class="hint">Live-weight lines vary a little by company. A live bird dresses out to a WOG of roughly 72 to 75 percent of its live weight: a 6.5 lb bird becomes about a 4.7 lb WOG, then gets cut up or deboned.</p>
+    <h3>Other birds you will hear about</h3>
+    <ul>
+      <li><strong>Cornish game hen</strong>: a very young, small bird, around 2 lb or under, sold whole as a single serving.</li>
+      <li><strong>Roaster</strong>: an older, heavier bird sold whole. A small market.</li>
+      <li><strong>Fowl / spent hen</strong>: a laying hen past her egg years. Tough meat, goes to soup, stock and canned products.</li>
+      <li><strong>Turkey</strong> is a separate market with its own quotes, seasons and plants. Same ideas, different bird.</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h2>Plant to truck</h2>
+    <div class="flow">
+      <div class="step"><b>Live haul</b><span>Birds caught at the farm, trucked in overnight</span></div>
+      <div class="step"><b>Processing</b><span>Stun, defeather, eviscerate, chill</span></div>
+      <div class="step"><b>WOG</b><span>Whole bird without giblets, the starting point for everything</span></div>
+      <div class="step"><b>Cut-up / debone</b><span>Parts, or boneless meat plus frames</span></div>
+      <div class="step"><b>Pack</b><span>Fresh (CVP or tray) or frozen (IQF or bulk)</span></div>
+      <div class="step"><b>Ship</b><span>Fresh moves in days; frozen can sit for months</span></div>
+    </div>
+    <p>Fresh chicken is perishable and the plant runs every day whether or not it has orders. A plant wants product sold before it is packed. That urgency is why brokers and traders exist: someone has to find a home for what the plant is long on, fast, at a price that still works.</p>
+  </div>
+
+  <div class="sec">
+    <h2>Carcass balance</h2>
+    <p>Roughly what a dressed bird is made of, by weight. The exact shares depend on bird size and how it is cut, but the point holds: the plant has to sell all of it.</p>
+    <div class="balance" aria-label="Approximate share of a dressed bird by weight">
+      <div style="width:34%;background:var(--c-breast)">Breast</div>
+      <div style="width:32%;background:var(--c-thigh)">Leg qtrs</div>
+      <div style="width:11%;background:var(--c-flat)">Wings</div>
+      <div style="width:23%;background:var(--c-back)">Back, neck, skin, trim</div>
+    </div>
+    <ul>
+      <li>When QSR runs a sandwich promotion, breast gets tight and expensive. The plant still has all those legs and wings to move, so dark meat gets cheap. That spread is where deals get made.</li>
+      <li>When football season pulls on wings, big-bird plants cannot just make more wings. They have to run more birds, which means more breast and thigh meat on the market too.</li>
+      <li>Exports are the release valve for dark meat. Leg quarters and paws leaving the country keep the domestic balance from collapsing.</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h2>Forms, packs and claims</h2>
+    <div class="grid">
+      <div class="card"><h3>Fresh</h3><p>Never frozen. Packed CVP (chill-pack vacuum bags flushed with CO2) or on ice. Shelf life is roughly 10 to 14 days from pack date, so the clock is always running.</p></div>
+      <div class="card"><h3>Frozen</h3><p>IQF (individually quick frozen, pieces stay loose) or block/bulk frozen. Good for about a year. Export, foodservice and anything that needs to sit.</p></div>
+      <div class="card"><h3>Tray pack</h3><p>Retail-ready trays, packer label or store brand. Medium birds, grocery meat case.</p></div>
+      <div class="card"><h3>Bulk</h3><p>40 lb cases (often 4 bags of 10 lb) for foodservice. Combo bins of about 2,000 lb for further processors. 15 kg and 20 kg boxes for export leg quarters and paws.</p></div>
+      <div class="card"><h3>Grade</h3><p>USDA Grade A means no bruises, broken bones, tears or missing parts. Plant grade or no grade is ungraded and cheaper. Retail wants A; further processors often do not care.</p></div>
+      <div class="card"><h3>Claims</h3><p>NAE / ABF (no antibiotics ever), organic, air-chilled, Halal. Enhanced means solution was added, up to 15 percent. Each claim is a different price and a different buyer.</p></div>
+    </div>
+    <h3>Sizing</h3>
+    <ul>
+      <li><strong>WOGs</strong> by weight range: 2.5-3, 3-3.5, 3.5-4 lb and up. Rotisserie programs are picky about this.</li>
+      <li><strong>Breast</strong> by ounce range (4-6, 6-8, 8-10 oz) or simply "jumbo" from big birds.</li>
+      <li><strong>Wings</strong> by size: small, medium, jumbo. Bigger bird, bigger wing. Sold whole (3-joint), 2-joint (tip off) or portioned into drumettes and flats.</li>
+      <li><strong>Thighs and drums</strong> by ounce range or by count per bag.</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h2>Reading a spec</h2>
+    <p>Every item on a quote sheet is a stack of words like this. Learn to read it left to right without stopping.</p>
+    <div class="spec">FRESH B/S BREAST · JUMBO · 4/10 · 40# · GR A · NAE · CVP · 14 DAY · 1 LOAD · FOB PLANT</div>
+    <dl class="kv">
+      <div><dt>Fresh</dt><dd>Never frozen. Ask for the pack date; the buyer cares about days left, not days total.</dd></div>
+      <div><dt>B/S breast</dt><dd>Boneless, skinless breast fillets.</dd></div>
+      <div><dt>Jumbo</dt><dd>From big birds, so large fillets. The sizing most further processors want.</dd></div>
+      <div><dt>4/10 · 40#</dt><dd>Four 10 lb bags in a 40 lb case.</dd></div>
+      <div><dt>Gr A</dt><dd>USDA Grade A.</dd></div>
+      <div><dt>NAE</dt><dd>No antibiotics ever.</dd></div>
+      <div><dt>CVP</dt><dd>Chill-pack vacuum bags, the standard bulk fresh pack.</dd></div>
+      <div><dt>14 day</dt><dd>Shelf life from pack date.</dd></div>
+      <div><dt>1 load</dt><dd>A full reefer trailer, about 42,000 lb, or roughly 1,050 cases on 21 pallets.</dd></div>
+      <div><dt>FOB plant</dt><dd>Buyer pays freight from the plant. A delivered price would include it.</dd></div>
+    </dl>
+  </div>
+
+  <div class="sec">
+    <h2>Where the price comes from</h2>
+    <p><strong>Urner Barry</strong> (UB, now part of Expana) publishes daily wholesale quotes for each part by region. Everyone still calls it UB, and most trades and contracts are priced off it: "UB flat" is the quote, "UB minus 10" is ten cents a pound under, "UB plus 5" is a nickel over. <strong>USDA AMS</strong> publishes free public price and volume reports that are worth reading alongside it.</p>
+    <h3>What moves the quote</h3>
+    <div class="grid">
+      <div class="card"><h3>Supply</h3><p>Chick placements and egg sets (USDA, weekly) tell you how many birds show up in 6 to 8 weeks. Bird weights, plant outages and bird flu (HPAI) change it fast.</p></div>
+      <div class="card"><h3>Demand</h3><p>QSR promotions and retail features move breast and wings in a hurry. Grilling season lifts breast and leg quarters. Football lifts wings.</p></div>
+      <div class="card"><h3>Exports</h3><p>Leg quarters and paws. Mexico and China have been the big destinations, and a trade dispute or an HPAI ban shows up in the LQ and paw quotes within days.</p></div>
+      <div class="card"><h3>Costs and stocks</h3><p>Corn and soybean meal set the cost of growing a bird. USDA cold storage (monthly) tells you how much frozen chicken is sitting in warehouses waiting to weigh on the market.</p></div>
+    </div>
+    <h3>Seasonality, in one line each</h3>
+    <div class="months">
+      <div class="hot"><b>Jan</b><span>Wings firm into playoffs</span></div>
+      <div class="hot"><b>Feb</b><span>Super Bowl, then Lent</span></div>
+      <div><b>Mar</b><span>March Madness wings</span></div>
+      <div><b>Apr</b><span>Grilling starts</span></div>
+      <div class="hot"><b>May</b><span>Memorial Day, breast and LQ</span></div>
+      <div><b>Jun</b><span>Peak grilling</span></div>
+      <div class="hot"><b>Jul</b><span>July 4th, then heat</span></div>
+      <div><b>Aug</b><span>Heat lightens birds</span></div>
+      <div class="hot"><b>Sep</b><span>Football, wings firm</span></div>
+      <div><b>Oct</b><span>Football, holiday buys begin</span></div>
+      <div><b>Nov</b><span>Turkey takes the plate</span></div>
+      <div><b>Dec</b><span>Holidays, plants short-week</span></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Trading 101</h2>
+    <p>A broker or trader sits between the plant and the buyer. The plant is long on something and wants it gone; the buyer needs product at a price and a date. You make the margin between the two, minus freight, and you carry the relationship, the credit risk and sometimes the inventory.</p>
+    <h3>Load math</h3>
+    <ul>
+      <li>40 lb case × 50 cases per pallet = 2,000 lb per pallet. About 21 pallets fills a reefer: roughly 42,000 lb.</li>
+      <li>One cent per pound on a 42,000 lb load is $420. A nickel is $2,100. That is why people argue over pennies.</li>
+      <li>A combo bin is about 2,000 lb of bulk product, so a load is about 21 combos.</li>
+    </ul>
+    <h3>Every trade needs these nailed down</h3>
+    <ol>
+      <li><strong>Spec</strong>: the full stack from the example above. Form, cut, size, pack, grade, claims.</li>
+      <li><strong>Quantity</strong>: cases, pounds or loads.</li>
+      <li><strong>Price basis</strong>: a flat number, or UB plus or minus, and on what day's quote.</li>
+      <li><strong>Freight</strong>: FOB plant or delivered, and who arranges the truck.</li>
+      <li><strong>Dates</strong>: pack date, ship date, and days of shelf life on arrival.</li>
+      <li><strong>Terms</strong>: who pays when, and whether credit has been approved.</li>
+      <li><strong>Confirmation</strong>: in writing, same day, before the truck moves.</li>
+    </ol>
+    <h3>Red flags</h3>
+    <ul>
+      <li>A fresh price that looks too good. Ask the pack date. Short-dated product is cheap for a reason.</li>
+      <li>"Jumbo" with no bird size behind it, or "Grade A" from a plant that does not grade.</li>
+      <li>Freight terms nobody said out loud. A delivered price with a 900-mile haul can eat the whole margin.</li>
+      <li>A new buyer in a hurry with no credit on file.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== BIRD ===================== -->
+<section id="view-bird" class="view" hidden>
+  <div class="sec">
+    <h2>The bird, part by part</h2>
+    <p>Tap any part of the bird or any chip below it. Every part shows its trade names, what it is, where it goes and what a trader should know about it.</p>
+    <div class="bird-wrap" id="bird-main"></div>
+    <div class="legend" id="bird-legend"></div>
+    <div class="card part-panel" id="part-panel"></div>
+  </div>
+  <div class="sec">
+    <h2>Combinations you will trade</h2>
+    <div class="grid" id="combos"></div>
+  </div>
+</section>
+
+<!-- ===================== QUIZ ===================== -->
+<section id="view-quiz" class="view" hidden>
+  <div class="sec" id="quiz-setup">
+    <h2>Quiz yourself</h2>
+    <p>Ten questions a round. Pick a mode, play it until you can run a clean 10, then move on. Best scores are kept on this phone.</p>
+    <div class="modes" id="modes" role="group" aria-label="Quiz mode"></div>
+    <div class="bests" id="bests"></div>
+    <div class="qfoot"><button class="btn" id="start">Start round</button></div>
+    <p class="hint">Parts questions use a plain grey bird, so you have to know where things are, not what color they were on the Bird tab.</p>
+  </div>
+  <div class="sec" id="quiz-play" hidden>
+    <div class="qtop">
+      <div class="qhead">
+        <span class="qmode" id="qmode"></span>
+        <span class="qnums" id="qnums"></span>
+        <button class="btn ghost small" id="quit" type="button">Quit</button>
+      </div>
+      <div class="qbar" id="qbar" aria-hidden="true"></div>
+    </div>
+    <div class="card qcard" id="qcard"></div>
+  </div>
+</section>
+
+<!-- ===================== LINGO ===================== -->
+<section id="view-lingo" class="view" hidden>
+  <div class="sec">
+    <h2>Lingo</h2>
+    <p>The words people say on the phone and write on quote sheets. Read it once a day for a week and it sticks.</p>
+    <div id="lingo-tables" class="view"></div>
+  </div>
+</section>
+
+<!-- ===================== EXCEL ===================== -->
+<section id="view-excel" class="view" hidden>
+  <div class="sec">
+    <h2>How to get good at this</h2>
+    <p class="lead">The traders who last are not the loudest ones. They know the market before they pick up the phone, they do what they said they would do, and they stay curious about every plant, every buyer and every load.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Every morning, before the first call (15 minutes)</h3>
+    <ul class="check">
+      <li>Read the UB (Expana) chicken report and the USDA daily. Note what moved and by how much.</li>
+      <li>Log five prices in a notebook or sheet: B/S breast, tenders, jumbo wings, leg quarters, WOGs. A month of this and you can feel the market.</li>
+      <li>Check anything you have in transit: truck location, delivery appointment, any temperature or date issue.</li>
+      <li>Call three people with no agenda: a plant, a buyer, a trucker. "What are you long on?" "What's moving?" "Anything short-dated?"</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h3>Habits that compound</h3>
+    <ol>
+      <li><strong>Know the spec cold.</strong> Be able to describe any item by form, cut, size, pack, grade, claims and dates without looking. Quiz tab, every day, until it is boring.</li>
+      <li><strong>Build a plant sheet.</strong> For every plant you deal with: bird size, what they debone, pack styles, who to call, when they run short weeks. Nobody will hand you this; you build it one call at a time.</li>
+      <li><strong>Keep a trade log.</strong> Every trade, win or lose: buyer, seller, spec, price versus UB, freight, margin, and one line on what you would do differently.</li>
+      <li><strong>Learn freight.</strong> Reefer rates on your main lanes, pallet counts, cold storage costs, what a late truck costs. Freight is where margins quietly die.</li>
+      <li><strong>Go see it.</strong> Walk a plant floor and a further processor. Once you have watched a deboning line, "jumbo" and "woody breast" stop being words.</li>
+      <li><strong>Call back when you said you would.</strong> This business runs on the phone and on memory. People trade with the ones who are easy to reach and never surprise them.</li>
+      <li><strong>Your word is the contract.</strong> A verbal trade is a trade. If you say a load is sold, it is sold. Reputation is the only thing you own.</li>
+      <li><strong>Think in loads and cents.</strong> Every time you hear a price, do the load math in your head. It keeps you honest about what a deal is really worth.</li>
+    </ol>
+  </div>
+
+  <div class="sec">
+    <h3>Questions to ask Dad this week</h3>
+    <ul>
+      <li>Which plants do we buy from most, and what size bird does each one run?</li>
+      <li>When you quote UB minus on a load, how do you decide the minus?</li>
+      <li>Who do you call first when a buyer cancels and we have a load on the road?</li>
+      <li>How do we decide who gets credit, and how much?</li>
+      <li>What are our three best freight lanes, and what do they cost right now?</li>
+      <li>What was the worst trade you made in your first year, and what did it teach you?</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h3>Your first 30 days</h3>
+    <div class="plan">
+      <div class="card"><b>Week 1 · Parts and lingo</b><p>Bird tab every day. Run the Parts and Lingo quizzes until you score 10 of 10 three times in a row.</p></div>
+      <div class="card"><b>Week 2 · Specs</b><p>Pull ten real items off our invoices or quote sheets and write out what every word means. Ask about the ones you cannot explain.</p></div>
+      <div class="card"><b>Week 3 · The market</b><p>Log prices every morning. Each day, explain one price move to Dad in two sentences, and ask whether you got it right.</p></div>
+      <div class="card"><b>Week 4 · Trades</b><p>Sit in on five calls. Write each one up in the trade log. By the end of the week, quote one load yourself with Dad listening.</p></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>Where the information lives</h3>
+    <div class="res">
+      <a href="https://www.urnerbarry.com/" target="_blank" rel="noopener">Urner Barry (Expana): the daily quotes everyone prices off</a>
+      <a href="https://www.ams.usda.gov/market-news/poultry" target="_blank" rel="noopener">USDA AMS Poultry Market News: free daily and weekly reports</a>
+      <a href="https://www.nationalchickencouncil.org/" target="_blank" rel="noopener">National Chicken Council: industry stats and how broilers are marketed</a>
+      <a href="https://www.wattagnet.com/" target="_blank" rel="noopener">WATTPoultry: plant news, bird weights, who is expanding</a>
+      <a href="https://www.meatpoultry.com/" target="_blank" rel="noopener">Meat+Poultry: processor and further-processor news</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer>Weights, ranges and shelf lives are typical, not rules. Every plant and every buyer has its own numbers. When in doubt, ask.</footer>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- data ---------- */
+var PARTS = {
+  neck:{name:"Neck",color:"var(--c-neck)",trade:["Necks"],
+    what:"The neck, removed from the whole bird before it becomes a WOG.",
+    where:"Stock and soup, pet food, some export. Often packed with giblets.",
+    note:"Low value. Moves in combos, usually as a throw-in to balance a plant."},
+  back:{name:"Back",color:"var(--c-back)",trade:["Backs","Frames","Necks & backs"],
+    what:"The spine and rib cage left after the breast and legs come off.",
+    where:"Stock, mechanically separated chicken (MSC), pet food, rendering.",
+    note:"The cheapest thing on the bird. A plant deboning a lot of breast has a lot of frames to move."},
+  breast:{name:"Breast",color:"var(--c-breast)",trade:["B/S breast","Split breast B/I","Butterfly","Fillet"],
+    what:"The two pectoral muscles on the front of the bird. White meat, and the item that pays the plant's bills.",
+    where:"Retail trays, foodservice, QSR sandwiches, further processors (strips, nuggets, cooked product).",
+    note:"Sized in ounces (4-6, 6-8, 8-10) or sold as jumbo from big birds. Look at the UB B/S breast quote first every morning."},
+  tender:{name:"Tender",color:"var(--c-tender)",trade:["Tenders","Tenderloins","Clipped tenders"],
+    what:"The small strip of muscle under each breast fillet. It comes off during deboning.",
+    where:"QSR strips and tenders, foodservice, retail.",
+    note:"Quoted separately from breast. Clipped means the tendon has been removed, which is what most foodservice buyers want."},
+  drumette:{name:"Drumette",color:"var(--c-drumette)",trade:["Drumettes","1st joint","First section"],
+    what:"The first wing segment, nearest the body. One bone, looks like a tiny drumstick.",
+    where:"Party wings, wing restaurants, retail, foodservice.",
+    note:"Drumette plus flat is a portioned or party wing, which is how most wing restaurants buy."},
+  flat:{name:"Flat",color:"var(--c-flat)",trade:["Flats","Wingettes","2nd joint","Mid-joint"],
+    what:"The middle wing segment. Two thin bones with the meat between them.",
+    where:"Party wings, wing restaurants, retail.",
+    note:"Flats are the piece wing joints fight over, so a plant that can sell flats and drumettes separately usually will."},
+  tip:{name:"Tip",color:"var(--c-tip)",trade:["Tips","3rd joint","Wing tips"],
+    what:"The end segment of the wing. Skin and bone, very little meat.",
+    where:"Stock, export, pet food, some ethnic markets.",
+    note:"A 2-joint wing is a whole wing with the tip cut off. A 3-joint or whole wing still has it."},
+  thigh:{name:"Thigh",color:"var(--c-thigh)",trade:["Thighs B/I S/O","B/S thigh meat","Thigh fillets"],
+    what:"The upper leg. Dark meat, with more fat and flavor than breast.",
+    where:"Retail, foodservice, further processing (sausage, nuggets, dark-meat sandwiches), export.",
+    note:"Boneless skinless thigh meat has grown into a big item as dark meat caught on. Usually spec'd by ounce range."},
+  drumstick:{name:"Drumstick",color:"var(--c-drum)",trade:["Drums","Drumsticks"],
+    what:"The lower leg, knee to hock. Dark meat on one bone.",
+    where:"Retail value packs, foodservice, export, school lunch programs.",
+    note:"Cheap per pound and sized by count. Often moves with thighs as whole legs or leg quarters."},
+  paw:{name:"Paw",color:"var(--c-paw)",trade:["Paws","Feet","Jumbo A paws"],
+    what:"The foot, cleaned and processed. Almost no meat, lots of collagen.",
+    where:"Export, mostly to Asia. China has been the big buyer.",
+    note:"Graded A or B by appearance. Nearly always frozen for export, so trade policy moves this price more than demand at home."}
+};
+var PART_ORDER = ["neck","back","breast","tender","drumette","flat","tip","thigh","drumstick","paw"];
+
+var COMBOS = [
+  ["WOG","Whole bird, no giblets. Sold by weight range (2.5-3, 3-3.5, 3.5-4 lb and up). Rotisserie programs and foodservice."],
+  ["Leg quarter (LQ)","Thigh plus drumstick plus a piece of back. The biggest export item and the cheapest chicken in the grocery store."],
+  ["Whole leg","Thigh plus drumstick, no back attached."],
+  ["Front half / back half","F/H is breast, wings and the front of the back. B/H is the legs and the rest. A way to sell a small bird in two pieces."],
+  ["8-piece cut-up","Two breast halves, two wings, two thighs, two drums, from a small bird. 9-piece splits the breast into three. The QSR fried-chicken item."],
+  ["Giblets","Liver, gizzard, heart, sometimes neck. Sold separately or bagged inside a whole bird."],
+  ["MSC","Mechanically separated chicken. Frames go through a machine and come out as a paste for hot dogs, nuggets and pet food."]
+];
+
+var CUTS = [
+  ["Whole bird with the giblets and neck removed","WOG","The basic whole-bird item. Everything else starts here."],
+  ["Boneless, skinless breast meat; the item big-bird plants are built around","B/S breast","The money cut. Watch its UB quote first."],
+  ["The strip of meat under the breast fillet","Tender","Also called a tenderloin. Clipped means the tendon is removed."],
+  ["Thigh, drumstick and a piece of the back, still attached","Leg quarter","The biggest export item in US chicken."],
+  ["The middle segment of the wing, with two bones","Flat","Also called a wingette or 2nd joint."],
+  ["The wing segment nearest the body that looks like a tiny drumstick","Drumette","Drumette plus flat equals a party wing."],
+  ["Thigh and drumstick together, with no back attached","Whole leg","Not the same as a leg quarter, which keeps a piece of back."],
+  ["Wings cut into drumettes and flats with the tips removed","Party wings","Also called portioned wings. The wing-restaurant item."],
+  ["Liver, gizzard and heart packed together","Giblets","Often bagged inside a whole bird."],
+  ["Chicken feet, cleaned and graded for export","Paws","Mostly frozen and shipped to Asia."],
+  ["What is left of the carcass after the breast and legs are removed","Backs / frames","Goes to stock, MSC and pet food."],
+  ["Breast with the bone and skin left on, cut into two halves","Split breast B/I","Bone-in, skin-on. A retail and foodservice item."],
+  ["A young meat chicken, about 6 to 8 weeks old","Broiler","Also called a broiler/fryer. Nearly all traded chicken."],
+  ["An old laying hen sold after her egg production drops","Fowl / spent hen","Tough meat, used for soup, stock and canned product."],
+  ["A very small young bird, around 2 lb or under, sold whole","Cornish game hen","A single-serving whole bird."],
+  ["Meat stripped from frames by machine into a paste","MSC","Mechanically separated chicken: hot dogs, nuggets, pet food."],
+  ["A whole wing with the tip cut off","2-joint wing","Drumette and flat still connected, no tip."],
+  ["Bone-in, skin-on thighs","Thighs B/I S/O","B/I is bone-in, S/O is skin-on."]
+];
+
+var LINGO = [
+  ["Cuts and parts",[
+    ["WOG","Whole bird WithOut Giblets, and usually without the neck. The basic whole-bird item."],
+    ["B/S","Boneless, skinless."],
+    ["B/I · S/O","Bone-in. Skin-on."],
+    ["LQ","Leg quarter: thigh, drumstick and a piece of back."],
+    ["F/H · B/H","Front half (breast, wings, front of the back). Back half (legs and the rest)."],
+    ["8-pc · 9-pc","8-piece cut-up: 2 breast halves, 2 wings, 2 thighs, 2 drums. 9-piece splits the breast into three."],
+    ["Tenders","Tenderloins, the strip under the breast fillet. Clipped means the tendon is removed."],
+    ["2-joint · 3-joint","2-joint wing is drumette plus flat, tip off. 3-joint or whole wing keeps the tip."],
+    ["Party wings","Wings portioned into drumettes and flats. Also called portioned wings."],
+    ["Jumbo · Medium · Small","Wing and bird size classes. Jumbo comes from big birds."],
+    ["Paws","Chicken feet, cleaned. Graded A or B. Mostly export."],
+    ["Giblets","Liver, gizzard, heart, sometimes neck."],
+    ["MSC · MDM","Mechanically separated chicken or mechanically deboned meat. A paste for hot dogs, nuggets, pet food."],
+    ["Frames · Backs","The carcass after breast and legs are off."],
+    ["Trim","Small pieces left from deboning, sold by fat content (for example, under 15 percent fat)."],
+    ["Broiler / fryer","A young meat chicken, the standard bird."],
+    ["Fowl · Spent hen","A laying hen past egg production. Soup and stock."],
+    ["Cornish hen","A very small young whole bird, about 2 lb or under."],
+    ["Woody breast","A muscle condition in big birds that makes breast meat hard and stringy. Downgrades the fillet."]
+  ]],
+  ["Forms and packs",[
+    ["IQF","Individually quick frozen. Pieces stay loose in the bag."],
+    ["CVP","Chill-pack vacuum bags flushed with CO2. The standard bulk fresh pack."],
+    ["Ice pack","Fresh product packed on ice. The older method."],
+    ["Tray pack","Retail-ready trays for the meat case."],
+    ["4/10","Four 10 lb bags in a 40 lb case. Written cases-of-bags."],
+    ["Combo","A bulk bin of about 2,000 lb, usually for further processors."],
+    ["Gr A","USDA Grade A. Plant grade or no grade is ungraded."],
+    ["NAE · ABF · RWA","No antibiotics ever, antibiotic-free, raised without antibiotics. Similar claims, check the exact wording."],
+    ["Enhanced","Solution added by injection or marinade, up to 15 percent. Non-enhanced has none."],
+    ["Pack date · Code date","When it was packed and when it expires. Fresh buyers want days remaining."],
+    ["Short-dated","Fresh product with few days left. Sold at a discount and moved fast."],
+    ["Air-chilled","Carcass cooled with air instead of a water bath. Commands a premium; water-chilled is standard."]
+  ]],
+  ["Market and trade",[
+    ["UB","Urner Barry, the daily wholesale price report (now part of Expana). UB flat, UB minus 5, UB plus 5: the quote, a nickel under, a nickel over."],
+    ["USDA AMS","The government's free public price and volume reports."],
+    ["Spot","A one-time load at today's price."],
+    ["Contract · Formula","Ongoing supply priced off a formula, usually UB plus or minus."],
+    ["FOB plant","Buyer pays freight from the plant."],
+    ["Delivered (DLVD)","Seller's price includes freight to the buyer's dock."],
+    ["Load","One reefer trailer, roughly 40,000 to 44,000 lb."],
+    ["Reefer","Refrigerated trailer."],
+    ["Distressed","Product that has to move now: short dates, a cancelled order, a temperature issue. Sold cheap."],
+    ["Placements · Egg sets","USDA weekly counts of chicks placed and eggs set. A supply forecast 6 to 8 weeks out."],
+    ["Cold storage","USDA monthly report of frozen chicken in warehouses. Big stocks weigh on prices."],
+    ["HPAI","Highly pathogenic avian influenza, bird flu. Outbreaks cut supply and trigger export bans."],
+    ["Carcass balance","Every bird yields fixed proportions of parts. The plant has to sell all of it."]
+  ]],
+  ["Who is who",[
+    ["Integrator","A company that owns the whole chain: feed mill, hatchery, contract growers, plants. Tyson, Pilgrim's, Wayne-Sanderson, Perdue, Koch, Mountaire, Peco and others."],
+    ["Plant","The processing facility. Each one runs a bird size and a product mix."],
+    ["Broker · Trader","Connects what plants are long on with buyers who need it. A broker usually never owns the product; a trader may."],
+    ["Further processor","Turns raw chicken into nuggets, strips, cooked and formed product."],
+    ["Distributor","Buys cases and delivers them to restaurants and institutions. Foodservice distributors are big fresh buyers."],
+    ["QSR","Quick service restaurant. Fast food."],
+    ["Exporter","Moves frozen leg quarters, paws and other dark meat overseas."]
+  ]]
+];
+
+var BUYERS = [
+  ["Small birds, 8-piece cut-up","Fast food fried-chicken chains (QSR)","Small birds are grown for the bone-in, 8-piece box."],
+  ["Jumbo B/S breast from big birds","Further processors, foodservice and retail boneless","Big-bird plants exist to make this item."],
+  ["Leg quarters","Export markets and retail value packs","The biggest export item, and the cheapest chicken in the store."],
+  ["Paws","Export, mostly to Asia","China has been the main buyer. Trade policy drives the price."],
+  ["Jumbo wings","Wing restaurants, sports bars and foodservice","Football season is the wing market's harvest."],
+  ["Tray-packed parts from medium birds","Grocery meat case (retail)","Medium birds are grown for the tray."],
+  ["Backs, frames and MSC","Pet food, stock and soup makers, further processors","The bottom of the bird still has to go somewhere."],
+  ["Tenders","Fast food strips and tenders, foodservice","Clipped tenders are the foodservice standard."],
+  ["Fowl and spent hens","Soup, stock and canned products","Too tough for the grill, perfect for a stockpot."],
+  ["WOGs in the 3 to 3.5 lb range","Rotisserie programs at grocery and club stores","Rotisserie buyers are strict on weight range."]
+];
+
+/* ---------- helpers ---------- */
+function $(s,root){return (root||document).querySelector(s);}
+function $$(s,root){return Array.prototype.slice.call((root||document).querySelectorAll(s));}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function store(k,v){try{if(v===undefined){var r=localStorage.getItem(k);return r?JSON.parse(r):null;}localStorage.setItem(k,JSON.stringify(v));}catch(e){return null;}}
+
+/* ---------- bird svg ---------- */
+var SVG_NS="http://www.w3.org/2000/svg";
+function birdSVG(labels){
+  var L=function(x1,y1,x2,y2,tx,ty,t){return '<g class="lbl"><line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/><circle cx="'+x2+'" cy="'+y2+'" r="2.2"/><text x="'+tx+'" y="'+ty+'" text-anchor="middle">'+t+'</text></g>';};
+  var lbl = labels ? '<g class="labels">'
+    +L(132,82,128,112,132,76,'NECK')
+    +L(200,82,204,146,200,76,'DRUMETTE')
+    +L(268,82,258,150,268,76,'FLAT')
+    +L(334,82,306,108,334,76,'BACK')
+    +L(392,178,318,154,412,182,'TIP')
+    +L(386,208,326,196,414,212,'THIGH')
+    +L(376,250,308,242,414,254,'DRUMSTICK')
+    +L(360,308,318,308,382,312,'PAW')
+    +L(84,172,128,170,56,176,'BREAST')
+    +L(92,236,150,190,66,248,'TENDER')
+    +'</g>' : '';
+  return '<svg class="bird" viewBox="0 0 460 340" xmlns="'+SVG_NS+'" role="group" aria-label="Side view of a chicken divided into cut regions">'
+    +'<g class="leg-back"><path d="M236 232 L238 296"/><path d="M238 296 L218 310 M238 296 L240 316 M238 296 L258 308 M238 296 L230 288"/></g>'
+    +'<path class="base" d="M100 86 C128 96 150 104 165 110 C215 90 300 90 342 116 L390 66 L404 84 L388 108 L418 108 L400 134 L416 158 L376 154 L354 148 C358 184 335 214 296 228 C252 242 205 240 170 226 C128 208 112 178 118 158 C110 148 96 134 84 116 Z"/>'
+    +'<path class="base" d="M256 200 C286 194 312 210 310 236 C308 252 300 262 294 266 C284 268 278 258 272 246 C262 232 246 212 256 200 Z"/>'
+    +'<g class="regions">'
+    +'<path class="region" data-part="neck" d="M98 88 C126 97 150 105 166 111 C160 122 150 132 138 140 C122 134 104 126 86 118 Z"/>'
+    +'<path class="region" data-part="back" d="M166 111 C215 91 300 91 342 116 C310 138 220 138 174 120 Z"/>'
+    +'<path class="region" data-part="thigh" d="M224 134 C250 142 300 140 342 118 L354 148 C358 184 335 214 296 228 C268 240 240 240 222 230 C232 196 230 160 224 134 Z"/>'
+    +'<path class="region" data-part="breast" d="M118 158 C112 178 128 208 170 226 C190 234 210 236 222 232 C232 196 230 160 222 130 C200 126 164 132 140 140 C130 146 122 152 118 158 Z"/>'
+    +'<path class="region" data-part="drumstick" d="M256 200 C286 194 312 210 310 236 C308 252 300 262 294 266 C284 268 278 258 272 246 C262 232 246 212 256 200 Z"/>'
+    +'<path class="region" data-part="drumette" d="M176 136 C198 128 214 126 228 128 C230 142 230 156 226 168 C210 170 192 168 180 162 C174 152 173 142 176 136 Z"/>'
+    +'<path class="region" data-part="flat" d="M228 128 C250 124 268 126 284 134 C288 148 288 160 282 172 C264 176 244 176 226 168 C230 156 230 142 228 128 Z"/>'
+    +'<path class="region" data-part="tip" d="M284 134 C306 136 322 142 332 150 C318 162 302 170 282 172 C288 160 288 148 284 134 Z"/>'
+    +'<ellipse class="region" data-part="tender" cx="156" cy="184" rx="24" ry="9" transform="rotate(-38 156 184)"/>'
+    +'</g>'
+    +'<g class="head"><path class="comb" d="M66 84 C68 70 74 68 78 76 C80 62 90 62 92 72 C96 64 106 68 104 80 C100 84 80 88 66 84 Z"/><circle class="skull" cx="88" cy="98" r="21"/><path class="beak" d="M69 94 L46 103 L69 110 Z"/><path class="wattle" d="M78 116 C76 128 86 134 90 124 C90 118 84 116 78 116 Z"/><circle class="eye" cx="82" cy="94" r="2.8"/></g>'
+    +'<path class="shank" d="M294 266 L296 300"/>'
+    +'<g class="paw" data-part="paw"><path d="M296 300 L275 314 M296 300 L299 320 M296 300 L317 312 M296 300 L288 292"/><rect x="262" y="284" width="60" height="42"/></g>'
+    +'<g class="marks"></g>'
+    +lbl+'</svg>';
+}
+function makeBird(container,opts){
+  opts=opts||{};
+  container.innerHTML=birdSVG(!!opts.labels);
+  var svg=$('svg',container);
+  if(opts.locked) svg.classList.add('locked');
+  if(opts.neutral) svg.classList.add('neutral');
+  $$('[data-part]',svg).forEach(function(el){
+    var id=el.getAttribute('data-part');
+    el.setAttribute('role','button');
+    el.setAttribute('aria-label',PARTS[id].name);
+    el.setAttribute('tabindex',opts.locked?'-1':'0');
+    function go(){ if(svg.classList.contains('locked')) return; if(opts.onPick) opts.onPick(id,el); }
+    el.addEventListener('click',go);
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();go();} });
+  });
+  return svg;
+}
+function markBird(svg,id,cls){
+  $$('[data-part]',svg).forEach(function(el){ el.classList.toggle(cls, el.getAttribute('data-part')===id); });
+}
+var CENTERS={neck:[126,114],back:[256,114],breast:[160,186],tender:[156,184],drumette:[204,148],flat:[256,150],tip:[306,152],thigh:[292,190],drumstick:[284,232],paw:[296,306]};
+function partCenter(svg,id){ var c=CENTERS[id]||[230,170]; return {x:c[0],y:c[1]}; }
+function svgEl(tag,attrs){ var e=document.createElementNS(SVG_NS,tag); for(var k in attrs) e.setAttribute(k,attrs[k]); return e; }
+/* question-mark pin plus a pulsing ring on the marked part */
+function pinPart(svg,id){
+  var c=partCenter(svg,id), g=$('.marks',svg);
+  var ring=svgEl('circle',{"class":"ring",cx:c.x,cy:c.y,r:14});
+  var pin=svgEl('g',{"class":"pin"});
+  pin.appendChild(svgEl('circle',{cx:c.x,cy:c.y,r:12}));
+  var t=svgEl('text',{x:c.x,y:c.y+6,"text-anchor":"middle"}); t.textContent='?'; pin.appendChild(t);
+  g.appendChild(ring); g.appendChild(pin);
+}
+/* name tag above a part after a locate answer */
+function tagPart(svg,id,label,kind,pos){
+  var c=partCenter(svg,id), g=$('.marks',svg);
+  var tag=svgEl('g',{"class":"tag "+kind});
+  var t=svgEl('text',{"text-anchor":"middle"}); t.textContent=label.toUpperCase();
+  var rect=svgEl('rect',{rx:4,height:22});
+  var line=svgEl('line',{});
+  tag.appendChild(line); tag.appendChild(rect); tag.appendChild(t); g.appendChild(tag);
+  var w=label.length*8+20; try{ var m=t.getComputedTextLength(); if(m>0) w=m+18; }catch(e){}
+  var above = pos!=='below';
+  var ty = above ? c.y-38 : c.y+38;
+  if(ty<16) ty=c.y+38; if(ty>324) ty=c.y-38;
+  var tx=Math.max(w/2+4,Math.min(456-w/2,c.x));
+  rect.setAttribute('x',tx-w/2); rect.setAttribute('y',ty-15); rect.setAttribute('width',w);
+  t.setAttribute('x',tx); t.setAttribute('y',ty+1);
+  line.setAttribute('x1',c.x); line.setAttribute('y1',c.y); line.setAttribute('x2',tx); line.setAttribute('y2',ty<c.y?ty+7:ty-15);
+}
+
+/* ---------- bird tab ---------- */
+var birdSel='breast';
+var mainSvg=makeBird($('#bird-main'),{labels:true,onPick:function(id){selectPart(id);}});
+mainSvg.classList.add('sel');
+var legend=$('#bird-legend');
+legend.innerHTML=PART_ORDER.map(function(id){
+  return '<button class="lg" data-id="'+id+'" aria-pressed="false"><i style="background:'+PARTS[id].color+'"></i>'+esc(PARTS[id].name)+'</button>';
+}).join('');
+$$('.lg',legend).forEach(function(b){ b.addEventListener('click',function(){ selectPart(b.getAttribute('data-id')); }); });
+function selectPart(id){
+  birdSel=id;
+  markBird(mainSvg,id,'on');
+  $$('.lg',legend).forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-id')===id ? 'true':'false'); });
+  var p=PARTS[id];
+  $('#part-panel').innerHTML=
+    '<div class="name"><i style="background:'+p.color+'"></i>'+esc(p.name)+'</div>'
+    +'<div>'+p.trade.map(function(t){return '<span class="chip">'+esc(t)+'</span>';}).join('')+'</div>'
+    +'<dl class="kv"><div><dt>What it is</dt><dd>'+esc(p.what)+'</dd></div>'
+    +'<div><dt>Where it goes</dt><dd>'+esc(p.where)+'</dd></div>'
+    +'<div><dt>Trader’s note</dt><dd>'+esc(p.note)+'</dd></div></dl>';
+}
+selectPart(birdSel);
+$('#combos').innerHTML=COMBOS.map(function(c){ return '<div class="card"><h3>'+esc(c[0])+'</h3><p>'+esc(c[1])+'</p></div>'; }).join('');
+
+/* ---------- lingo tab ---------- */
+$('#lingo-tables').innerHTML=LINGO.map(function(g){
+  return '<div class="sec"><h3>'+esc(g[0])+'</h3><div style="overflow-x:auto"><table class="ltable"><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>'
+    +g[1].map(function(r){ return '<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td></tr>'; }).join('')
+    +'</tbody></table></div></div>';
+}).join('');
+
+/* ---------- quiz ---------- */
+var MODES=[["parts","Parts of the bird"],["cuts","Name the cut"],["lingo","Lingo"],["buyers","Who buys it"],["mix","Mixed"]];
+var MODE_NAME={};MODES.forEach(function(m){MODE_NAME[m[0]]=m[1];});
+var ROUND=10;
+var st={mode:"parts",qs:[],i:0,score:0,streak:0,bestStreak:0,answered:false,picked:null,done:false,active:false,results:[]};
+var LINGO_FLAT=[];LINGO.forEach(function(g){g[1].forEach(function(r){LINGO_FLAT.push({term:r[0],def:r[1],group:g[0]});});});
+
+function distinct(correct,pool,n){
+  var out=[],seen={};seen[correct]=true;
+  shuffle(pool).forEach(function(x){ if(out.length<n && !seen[x]){seen[x]=true;out.push(x);} });
+  return out;
+}
+function qParts(){
+  var id=pick(PART_ORDER), p=PARTS[id];
+  if(Math.random()<0.5){
+    var others=PART_ORDER.filter(function(x){return x!==id;}).map(function(x){return PARTS[x].name;});
+    return {kind:"identify",part:id,prompt:"Which part of the bird is highlighted?",correct:p.name,
+      options:shuffle([p.name].concat(distinct(p.name,others,3))),explain:p.what};
+  }
+  return {kind:"locate",part:id,prompt:"Tap the "+p.name.toLowerCase()+".",correct:p.name,options:null,explain:p.note};
+}
+function qCuts(){
+  var c=pick(CUTS), pool=CUTS.map(function(x){return x[1];});
+  return {kind:"mc",src:"Name the cut",prompt:c[0],correct:c[1],options:shuffle([c[1]].concat(distinct(c[1],pool,3))),explain:c[2]};
+}
+function qLingo(){
+  var t=pick(LINGO_FLAT);
+  var same=LINGO_FLAT.filter(function(x){return x.group===t.group;}).map(function(x){return x.def;});
+  var all=LINGO_FLAT.map(function(x){return x.def;});
+  var d=distinct(t.def,same,3); if(d.length<3) d=d.concat(distinct(t.def,all,3-d.length));
+  return {kind:"mc",src:"Lingo",prompt:"What does “"+t.term+"” mean?",correct:t.def,options:shuffle([t.def].concat(d)),explain:""};
+}
+function qBuyers(){
+  var b=pick(BUYERS), pool=BUYERS.map(function(x){return x[1];});
+  return {kind:"mc",src:"Who buys it",prompt:"Who buys this? "+b[0],correct:b[1],options:shuffle([b[1]].concat(distinct(b[1],pool,3))),explain:b[2]};
+}
+function buildRound(mode){
+  var gens={parts:qParts,cuts:qCuts,lingo:qLingo,buyers:qBuyers};
+  var out=[],seen={},tries=0;
+  while(out.length<ROUND && tries<200){
+    tries++;
+    var g = mode==="mix" ? pick([qParts,qCuts,qLingo,qBuyers]) : gens[mode];
+    var q=g(); var key=q.kind+"|"+q.prompt+"|"+q.correct;
+    if(!seen[key]){seen[key]=true;out.push(q);}
+  }
+  return out;
+}
+
+var MODE_BLURB={parts:"Find parts on a grey bird",cuts:"Description to trade name",lingo:"Abbreviations and phone talk",buyers:"Match the cut to its customer",mix:"A little of everything"};
+var KIND_LABEL={identify:"Identify the part",locate:"Find it on the bird",mc:""};
+var modesEl=$('#modes');
+modesEl.innerHTML=MODES.map(function(m){return '<button class="mode" data-mode="'+m[0]+'" aria-pressed="'+(m[0]===st.mode?'true':'false')+'"><b>'+esc(m[1])+'</b><span>'+esc(MODE_BLURB[m[0]])+'</span></button>';}).join('');
+$$('.mode',modesEl).forEach(function(b){ b.addEventListener('click',function(){ st.mode=b.getAttribute('data-mode'); paintModes(); }); });
+function paintModes(){ $$('.mode',modesEl).forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-mode')===st.mode?'true':'false'); }); paintBests(); }
+function paintBests(){
+  var best=store('poultry-best')||{};
+  var keys=Object.keys(best);
+  $('#bests').innerHTML = keys.length ? keys.map(function(k){ return '<span class="chip">'+esc(MODE_NAME[k]||k)+': best '+best[k]+'/'+ROUND+'</span>'; }).join('') : '<span class="hint">No rounds played on this phone yet.</span>';
+}
+function startRound(){
+  st.qs=buildRound(st.mode); st.i=0; st.score=0; st.streak=0; st.bestStreak=0; st.answered=false; st.picked=null; st.done=false; st.active=true; st.results=[];
+  showPlay(true); renderQ(); window.scrollTo({top:0});
+}
+function showPlay(on){ $('#quiz-setup').hidden=on; $('#quiz-play').hidden=!on; }
+$('#start').addEventListener('click',startRound);
+$('#quit').addEventListener('click',function(){ st.active=false; st.done=false; showPlay(false); paintBests(); window.scrollTo({top:0}); });
+
+var qcard=$('#qcard');
+function kindOf(q){ if(q.kind==="identify"||q.kind==="locate") return KIND_LABEL[q.kind]; return st.mode==="mix" ? (q.src||"") : ""; }
+function paintTop(){
+  $('#qmode').textContent=MODE_NAME[st.mode];
+  $('#qnums').innerHTML = st.done ? 'Round over' : '<b>'+(st.i+1)+'</b> / '+ROUND+' · score <b>'+st.score+'</b>';
+  $('#qbar').innerHTML = st.qs.map(function(q,i){
+    var r=st.results[i]; var cls = r===true?'ok':r===false?'no':(i===st.i&&!st.done?'cur':'');
+    return '<i class="'+cls+'"></i>';
+  }).join('');
+}
+function renderQ(){
+  paintTop();
+  if(st.done){ renderEnd(); return; }
+  var q=st.qs[st.i];
+  var kind=kindOf(q);
+  var html=(kind?'<div class="qkind">'+esc(kind)+'</div>':'')+'<p class="qprompt">'+promptHTML(q)+'</p>';
+  if(q.kind==="identify"||q.kind==="locate") html+='<div class="bird-wrap" id="qbird"></div>';
+  if(q.options){
+    var two=q.options.every(function(o){return o.length<=16;});
+    html+='<div class="opts'+(two?' two':'')+'" id="opts">'+q.options.map(function(o,i){return '<button class="opt" data-v="'+esc(o)+'"><span class="k">'+"ABCD"[i]+'</span><span>'+esc(o)+'</span></button>';}).join('')+'</div>';
+  }
+  html+='<div id="fb"></div><div class="qfoot" id="qfoot"></div>';
+  qcard.innerHTML=html;
+  if(q.kind==="identify"){
+    var s=makeBird($('#qbird'),{labels:false,locked:true,neutral:true});
+    if(q.part!=="tender") $('[data-part="tender"]',s).classList.add('hide');
+    markBird(s,q.part,'on'); pinPart(s,q.part);
+  }
+  if(q.kind==="locate"){
+    var s2=makeBird($('#qbird'),{labels:false,neutral:true,onPick:function(id){ if(st.answered) return; answer(id===q.part, PARTS[id].name); }});
+    if(q.part==="breast") $('[data-part="tender"]',s2).classList.add('hide');
+    if(!st.answered){ var note=document.createElement('span'); note.className='tapnote'; note.textContent='Tap a part'; $('#qbird').appendChild(note); }
+  }
+  $$('.opt',qcard).forEach(function(b){ b.addEventListener('click',function(){ if(st.answered) return; answer(b.getAttribute('data-v')===q.correct, b.getAttribute('data-v')); }); });
+  if(st.answered) showResult(q);
+}
+function promptHTML(q){
+  if(q.kind==="locate") return 'Tap the <em>'+esc(q.correct.toLowerCase())+'</em> on the bird.';
+  if(q.kind==="identify") return 'Which part is marked?';
+  return esc(q.prompt);
+}
+function answer(ok,pickedLabel){
+  var q=st.qs[st.i];
+  st.answered=true; st.picked=pickedLabel; st.results[st.i]=!!ok;
+  if(ok){ st.score++; st.streak++; if(st.streak>st.bestStreak) st.bestStreak=st.streak; } else { st.streak=0; }
+  showResult(q);
+}
+function showResult(q){
+  var ok = st.picked===q.correct;
+  paintTop();
+  $$('.opt',qcard).forEach(function(b){
+    b.disabled=true;
+    var v=b.getAttribute('data-v');
+    if(v===q.correct) b.classList.add('right'); else if(v===st.picked) b.classList.add('wrong');
+  });
+  var s=$('#qbird svg');
+  if(s && q.kind==="locate"){
+    s.classList.add('locked');
+    var tn=$('#qbird .tapnote'); if(tn) tn.remove();
+    $$('[data-part]',s).forEach(function(el){
+      var id=el.getAttribute('data-part');
+      if(id===q.part){ el.classList.add('good'); }
+      else if(PARTS[id].name===st.picked){ el.classList.add('badpick'); }
+    });
+    tagPart(s,q.part,q.correct,'good','above');
+    if(!ok){ var wrongId=PART_ORDER.filter(function(id){return PARTS[id].name===st.picked;})[0]; if(wrongId) tagPart(s,wrongId,st.picked,'bad','below'); }
+  }
+  var fb=$('#fb');
+  fb.innerHTML='<div class="feedback '+(ok?'good':'bad')+'"><span class="mark">'+(ok?'✓':'✕')+'</span><b>'+(ok?'Right.':'Not quite. It’s the '+esc(q.correct)+'.')+'</b>'
+    +(q.explain?'<p>'+esc(q.explain)+'</p>':'<p></p>')+'</div>';
+  var qf=$('#qfoot'); qf.innerHTML='<button class="btn wide" id="next">'+(st.i+1<ROUND?'Next question':'See my score')+'</button>';
+  var nb=$('#next');
+  nb.addEventListener('click',function(){
+    st.i++; st.answered=false; st.picked=null;
+    if(st.i>=ROUND){ st.done=true; st.active=false; saveBest(); }
+    renderQ();
+    try{ qcard.scrollIntoView({block:'start',behavior:'smooth'}); }catch(e){}
+  });
+  try{ nb.focus({preventScroll:true}); }catch(e){}
+}
+function saveBest(){
+  var best=store('poultry-best')||{};
+  if(!best[st.mode] || st.score>best[st.mode]) best[st.mode]=st.score;
+  store('poultry-best',best);
+}
+function renderEnd(){
+  var msg = st.score===ROUND ? "Clean round. That is plant-manager territory." :
+            st.score>=8 ? "That is a trader. Run it again until it is ten." :
+            st.score>=5 ? "Getting there. Spend ten minutes on the Bird tab and come back." :
+            "Back to the Bird and Lingo tabs, then try again. It comes fast.";
+  var best=store('poultry-best')||{};
+  var missed=st.qs.filter(function(q,i){return st.results[i]===false;}).map(function(q){return q.correct;});
+  qcard.innerHTML='<div class="score-big">'+st.score+'<small> / '+ROUND+'</small></div>'
+    +'<div class="endbar" aria-hidden="true">'+st.results.map(function(r){return '<i class="'+(r?'ok':'no')+'"></i>';}).join('')+'</div>'
+    +'<p class="qprompt">'+esc(msg)+'</p>'
+    +(missed.length?'<p><span class="eyebrow">Go back and look at</span><br>'+missed.map(function(m){return '<span class="chip">'+esc(m)+'</span>';}).join('')+'</p>':'')
+    +'<p class="hint">Best streak this round: '+st.bestStreak+'. Best score in this mode on this phone: '+(best[st.mode]!=null?best[st.mode]:st.score)+'/'+ROUND+'.</p>'
+    +'<div class="qfoot"><button class="btn" id="again">Play again</button><button class="btn ghost" id="change">Change mode</button></div>';
+  $('#again').addEventListener('click',startRound);
+  $('#change').addEventListener('click',function(){ st.active=false; st.done=false; showPlay(false); paintBests(); window.scrollTo({top:0}); });
+  paintBests();
+}
+paintBests();
+
+/* ---------- tabs / routing ---------- */
+var VIEWS=["guide","bird","quiz","lingo","excel"];
+function showView(v){
+  if(VIEWS.indexOf(v)<0) v="guide";
+  VIEWS.forEach(function(x){ $('#view-'+x).hidden = x!==v; });
+  $$('.tab').forEach(function(t){ t.setAttribute('aria-selected', t.getAttribute('data-view')===v?'true':'false'); });
+}
+$$('.tab').forEach(function(t){ t.addEventListener('click',function(){
+  var v=t.getAttribute('data-view');
+  if(location.hash!=='#'+v) location.hash=v; else showView(v);
+  window.scrollTo({top:0});
+}); });
+window.addEventListener('hashchange',function(){ showView(location.hash.replace('#','')); });
+showView(location.hash.replace('#','') || 'guide');
+
+/* ---------- live-update hook: keep a round in progress ---------- */
+function start(saved){
+  if(saved && saved.quiz && saved.quiz.qs && (saved.quiz.active || saved.quiz.done)){
+    st=saved.quiz; if(!st.results) st.results=[];
+    paintModes(); showPlay(true); renderQ();
+  }
+}
+if(window.claude && window.claude.hot && window.claude.hot.snapshot){
+  window.claude.hot.snapshot(function(){ return {quiz:st}; });
+}
+if(window.claude && window.claude.hot && window.claude.hot.ready){ window.claude.hot.ready(start); }
+else { start(window.claude && window.claude.hot ? window.claude.hot.data : null); }
+})();
+</script>
+
+</body>
+</html>
